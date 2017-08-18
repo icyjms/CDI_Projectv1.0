@@ -1,0 +1,46 @@
+/*Login*/
+.top-div {
+  clear:both;
+  position:fixed;
+  top:0;
+  height:40%;
+  width:100%;
+  font-size:16px;
+  text-align:center;
+  z-index: -1;
+}
+.sign-in-top {
+  margin-top: 200px;
+}
+.form-wall {
+  margin: auto;
+  position: fixed !important;
+  top: 40%;
+  left: 50%;
+  transform: translate( -50%,  -60%);
+}
+.form-signin {
+    border: 1px solid rgb(0, 150, 136);
+    background-color: #fff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0);
+    /*width: 60%;*/
+    /*height: 40%;*/
+    min-width: 300px;
+    max-width: 400px;
+    padding: 40px;
+}
+.form-signin input {
+  padding: 20px 8px;
+}
+.form-signin .col-md-12 {
+  padding: 5px;
+  margin-bottom: 30px;
+}
+.logo{
+  height: 35px;
+  margin-top: 5px;
+}
+.login-logo {
+  height: 70px;
+  margin-top: 30px;
+}

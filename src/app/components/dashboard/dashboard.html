@@ -1,0 +1,25 @@
+<div class="content-view">
+    <div class="col-md-12">
+        <h4 ng-bind="vm.titleHeader"></h4>
+    </div>    
+    <div class="content margin-top col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in vm.data">
+                    <td>
+                        <span ng-bind="item.id"></span>
+                    </td>
+                    <td>
+                        <span class="text-capitalize text-bold" ng-bind="item.first_name + ' '+ item.last_name"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

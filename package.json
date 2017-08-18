@@ -1,0 +1,84 @@
+{
+  "name": "cdi-web-app",
+  "version": "1.0.0",
+  "description": "## Introduction",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development node_modules/.bin/webpack-dev-server --open",
+    "build": "rimraf dist && NODE_ENV=production node_modules/.bin/webpack -p",
+    "precommit": "lint-staged",
+    "prettify": "prettier --tab-width 4 --single-quote --write \"./src/**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mightybulacs/stormwind-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mightybulacs/stormwind-frontend/issues"
+  },
+  "homepage": "https://github.com/mightybulacs/stormwind-frontend#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.4",
+    "angular": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-chart.js": "^1.1.1",
+    "angular-cookies": "^1.6.4",
+    "angular-loading-bar": "^0.9.0",
+    "angular-messages": "^1.6.4",
+    "angular-sanitize": "^1.6.4",
+    "angular-socket-io": "^0.7.0",
+    "angular-toastr": "^2.1.1",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angularjs-slider": "^6.2.2",
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.6.0",
+    "font-awesome": "^4.7.0",
+    "js-marker-clusterer": "^1.0.0",
+    "jsts": "^1.4.0",
+    "lodash.find": "^4.6.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.map": "^4.6.0",
+    "lodash.remove": "^4.7.0",
+    "magic-check": "^1.0.3",
+    "ng-csv": "^0.3.6",
+    "ng-file-upload": "^12.2.13",
+    "ngmap": "^1.18.4",
+    "print.js": "^1.0.18",
+    "roboto-fontface": "^0.7.0",
+    "socket.io": "^2.0.3",
+    "titatoggle": "^1.2.15",
+    "wicket": "^1.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "compression-webpack-plugin": "^0.4.0",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.29.0",
+    "husky": "^0.13.4",
+    "jsts": "^1.4.0",
+    "lint-staged": "^4.0.0",
+    "prettier": "^1.4.4",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.0.0",
+    "webpack-bundle-size-analyzer": "^2.7.0",
+    "webpack-dev-server": "^2.5.0",
+    "webpack-manifest-plugin": "^1.1.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,css}": [
+      "prettier --tab-width 4 --single-quote --write",
+      "git add"
+    ]
+  }
+}

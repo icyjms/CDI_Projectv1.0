@@ -1,0 +1,41 @@
+<nav class="navbar theme navbar-fixed-top main-nav" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+       
+         <a class="navbar-brand" id="holder">
+            <img ng-src="{{vm.logo}}">
+        </a> 
+         <a class="text-white" style="margin-top: 10px; float: left; margin-left: 20px" ng-click="vm.toggleSidebar()">
+            <i class="fa fa-bars fa-2x"  aria-hidden="true"></i>
+        </a>
+    </div>
+    <!-- Top Menu Items -->
+    <ul class="nav navbar-right top-nav ">
+        <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+            <a class="dropdown-toggle text-white" uib-dropdown-toggle>
+                <i class="fa fa-user"></i>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a ng-click="vm.view_profile()">
+                    <i class="fa fa-user"></i>
+                    My Account
+                </a>
+                </li>
+                <li>
+                    <a ng-click="vm.update_password()">
+                    <i class="fa fa-lock"></i>
+                    Change Password
+                </a>
+                </li>
+                <li>
+                    <a ng-click="vm.logout()">
+                    <i class="fa fa-power-off"></i>
+                    Sign Out
+                </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

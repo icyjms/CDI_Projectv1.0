@@ -1,0 +1,78 @@
+
+.navbar-header {
+    height: 50px;
+}
+
+.navbar-brand {
+    padding: 8px 0px;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus,
+.nav > li > a:hover, .nav > li > a:focus {
+    background: transparent !important;
+    cursor: pointer;
+}
+.navbar .navbar-brand img {
+    height: 33px;
+    margin-left: 20px;
+    padding: 5px;
+    background: #fff;
+    border-radius: 5px;  
+}
+
+#holder p:hover {
+    color: #b2dbfb;
+}
+
+#holder img {
+    float: left;
+}
+
+.top-nav {
+    padding: 5px 20px !important;
+}
+
+.top-nav > li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav > li > a {
+    /*padding-top: 15px;*/
+    /*padding-bottom: 15px;*/
+    line-height: 20px;
+    color: rgba(115, 115, 115, 0.86);
+}
+.top-nav > .open > .dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+}
+.top-nav > .open > .dropdown-menu > li > a {
+    white-space: normal;
+    padding: 10px;
+}
+.navbar {
+    height: 50px !important;
+    min-height: 50px !important;
+    margin-bottom: 0px;
+    /*border: 1px solid transparent;*/
+}
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+    background: transparent;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background: transparent;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 0px !important;
+}
