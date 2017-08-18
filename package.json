@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mightybulacs/stormwind-frontend.git"
+    "url": "https://github.com/dianecodemagnus/cdi-web-app"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mightybulacs/stormwind-frontend/issues"
+    "url": "https://github.com/dianecodemagnus/cdi-web-app/issues"
   },
-  "homepage": "https://github.com/mightybulacs/stormwind-frontend#readme",
+  "homepage": "https://github.com/dianecodemagnus/cdi-web-app/#readme",
   "dependencies": {
     "@uirouter/angularjs": "^1.0.4",
     "angular": "^1.6.4",
