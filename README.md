@@ -17,7 +17,7 @@ sudo npm install -g npm
 
 ## Installation
 ```
-git clone https://github.com/mightybulacs/cdi-web-app.git
+git clone https://github.com/dianecodemagnus/cdi-web-app.git
 cd cdi-web-console
 npm install
 ```
