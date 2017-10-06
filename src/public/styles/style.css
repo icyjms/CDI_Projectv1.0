@@ -3,6 +3,7 @@ a {cursor: pointer !important;outline : none !important;}
 .margin-top{margin-top:20px;}
 .modal-content{border-radius: 0;}
 .text-bold{font-weight: bold;}
+.margin-top-md{ margin-top: 50px;}
 .text-red{color:red}
 /*theme*/
 .theme-l5 {color:#000 !important; background-color:#e9fffd !important}

@@ -1,4 +1,5 @@
 import angular from 'angular';
+import UTIL from 'Helpers/util';
 
 (function() {
     'use strict';
@@ -40,6 +41,12 @@ import angular from 'angular';
     ) {
         var vm = this;
         vm.sidebarService = SidebarService;
+        vm.defaultParams = UTIL.defaultParams;
 
+        vm.toggle = toggle;
+
+        function toggle(prop) {
+            vm[prop] = !vm[prop];
+        }
     }
 })();
