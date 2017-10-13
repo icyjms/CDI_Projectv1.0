@@ -11,10 +11,6 @@ Date.prototype.subtractDays = function(days) {
     return dat;
 };
 
-MarkerClusterer.prototype.onRemove = function() {
-    this.setReady_(true);
-};
-
 Number.prototype.formatMoney = function(c, d, t) {
     var n = this,
         c = isNaN((c = Math.abs(c))) ? 2 : c,
