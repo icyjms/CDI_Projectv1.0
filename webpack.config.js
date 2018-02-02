@@ -107,8 +107,7 @@ const config = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src/public/index.html'),
             inject: 'body',
-            minify: isProd
-                ? {
+            minify: isProd ? {
                       removeComments: true,
                       collapseWhitespace: true,
                       removeRedundantAttributes: true,
@@ -132,7 +131,8 @@ const config = {
     ],
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: '/',
+        port:'9090'
     },
     node: {
         console: true,

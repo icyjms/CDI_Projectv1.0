@@ -10,6 +10,7 @@ import angular from 'angular';
 import '@uirouter/angularjs';
 import 'angular-socket-io';
 import 'moment';
+import 'angular-permission';
 
 (function() {
     'use strict';
@@ -17,7 +18,6 @@ import 'moment';
     angular.module('app', [
         'ui.router',
         require('angular-aria'),
-        require('angular-chart.js'),
         require('angular-cookies'),
         require('angular-loading-bar'),
         require('angular-messages'),
