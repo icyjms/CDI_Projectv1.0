@@ -1,4 +1,5 @@
 import angular from 'angular';
+import ROLES from 'Helpers/permissions';
 
 (function() {
     'use strict';
@@ -98,6 +99,20 @@ import angular from 'angular';
                     }
                 });
             }
+        ])
+        .run([
+            '$cookies',
+            'QueryService',
+            'PermPermissionStore',
+            function($cookies, QueryService, PermPermissionStore) {
+                var user = $cookies.getObject('user');
+                var permissions = ROLES[user.role || 'ADMIN'];
+                PermPermissionStore.defineManyPermissions(permissions, function(
+                    permissionName
+                ) {
+                    return permissions.includes(permissionName);
+                });
+            }
         ]);
 
     router.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -120,16 +135,20 @@ import angular from 'angular';
                     }
                 }
             })
-            
             .state('app.dashboard', {
                 url: 'dashboard',
                 component: 'dashboard'
             })
             .state('app.settings', {
                 url: 'settings',
-                component: 'settings'
+                component: 'settings',
+                data: {
+                    permissions: {
+                        only: ['canViewSettings'],
+                        redirectTo: 'app.dashboard'
+                    }
+                }
             })
-            
             .state('login', {
                 url: '/login',
                 views: {

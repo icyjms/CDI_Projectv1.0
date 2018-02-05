@@ -17,6 +17,8 @@ import 'angular-permission';
 
     angular.module('app', [
         'ui.router',
+        'permission',
+        'permission.ui',
         require('angular-aria'),
         require('angular-cookies'),
         require('angular-loading-bar'),
