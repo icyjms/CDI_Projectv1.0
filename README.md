@@ -7,7 +7,7 @@ Need node.js and npm to install and run.
 To install latest node.js.
 ```
 sudo npm install -g n
-sudo n latest
+sudo n v8.5.0
 ```
 
 To update npm
