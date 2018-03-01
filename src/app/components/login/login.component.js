@@ -1,4 +1,5 @@
 import angular from 'angular';
+import ROLES from 'Helpers/permissions';
 
 (function() {
     'use strict';
@@ -12,17 +13,21 @@ import angular from 'angular';
     LoginCtrl.$inject = [
         '$scope',
         '$state',
+        '$cookies',
         'ModalService',
         'QueryService',
-        'SessionService'
+        'SessionService',
+        'PermPermissionStore'
     ];
 
     function LoginCtrl(
         $scope,
         $state,
+        $cookies,
         ModalService,
         QueryService,
-        SessionService
+        SessionService,
+        PermPermissionStore
     ) {
         var vm = this;
 
@@ -49,13 +54,13 @@ import angular from 'angular';
 
         function login(user) {
             var req = {
-                method  : 'POST', // POST, GET, PUT, DELETE
-                body    : user, // data to be sent
-                params  : false, // sample { page:1, limit:10 }
-                hasFile : false, // formData to be sent
-                route   : {login:''}, // will result /users
-                cache   : false, // false if not needed
-                cache_string : [''] 
+                method: 'POST', // POST, GET, PUT, DELETE
+                body: user, // data to be sent
+                params: false, // sample { page:1, limit:10 }
+                hasFile: false, // formData to be sent
+                route: { login: '' }, // will result /users
+                cache: false, // false if not needed
+                cache_string: ['']
             };
             // Signal the start of login
             startLogin();
@@ -114,6 +119,14 @@ import angular from 'angular';
 
             // Hide the errors on DOM
             vm.showErrorMessage = false;
+
+            var user = $cookies.getObject('user');
+            var permissions = ROLES[user.role];
+            PermPermissionStore.defineManyPermissions(permissions, function(
+                permissionName
+            ) {
+                return permissions.includes(permissionName);
+            });
         }
 
         // This function sets variables accordingly when login failed

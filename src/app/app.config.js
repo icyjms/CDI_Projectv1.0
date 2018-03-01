@@ -105,13 +105,16 @@ import ROLES from 'Helpers/permissions';
             'QueryService',
             'PermPermissionStore',
             function($cookies, QueryService, PermPermissionStore) {
-                var user = $cookies.getObject('user');
-                var permissions = ROLES[user.role || 'ADMIN'];
-                PermPermissionStore.defineManyPermissions(permissions, function(
-                    permissionName
-                ) {
-                    return permissions.includes(permissionName);
-                });
+                if ($cookies.getObject('user') != null) {
+                    var user = $cookies.getObject('user');
+                    var permissions = ROLES[user.role];
+                    PermPermissionStore.defineManyPermissions(
+                        permissions,
+                        function(permissionName) {
+                            return permissions.includes(permissionName);
+                        }
+                    );
+                }
             }
         ]);
 
