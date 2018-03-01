@@ -20,7 +20,8 @@ import angular from 'angular';
                 fullname: data.fullName,
                 phoneNumber: data.phoneNumber,
                 email: data.email,
-                token: data.token
+                token: data.token,
+                role: 'ADMIN'
             });
         };
 
