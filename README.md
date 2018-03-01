@@ -107,6 +107,11 @@ import URLS from 'Helpers/urls';
 
       });
 
+      // Inject all dependencies
+      SampleCtrl.$inject = [
+        'SampleService'
+      ];
+
       function SampleCtrl(SampleService) {
             var vm = this;
 
