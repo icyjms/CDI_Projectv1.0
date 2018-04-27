@@ -138,6 +138,16 @@ import ROLES from 'Helpers/permissions';
                     }
                 }
             })
+            // start - added by james cabauatan
+            .state('app.map', {
+                url: 'map',
+                component: 'mapComponent'
+            })
+            .state('app.chat', {
+                url: 'chat',
+                component: 'chat'
+            })
+            // end
             .state('app.dashboard', {
                 url: 'dashboard',
                 component: 'dashboard'
