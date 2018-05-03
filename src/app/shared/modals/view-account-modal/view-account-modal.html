@@ -1,3 +1,16 @@
+<style>
+        .full button span {
+          background-color: limegreen;
+          border-radius: 32px;
+          color: black;
+        }
+        .partially button span {
+          background-color: orange;
+          border-radius: 32px;
+          color: black;
+        }
+      </style>
+
 <div class="modal-header bg-primary">
     <span class="text-uppercase lead">
         {{ vm.header }}
@@ -29,6 +42,22 @@
                 <label for="inputEmail" class="col-sm-2">Email</label>
                 <div class="col-sm-10">
                     {{vm.user.email}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-2">Birth Date</label>
+                <div class="col-sm-10">
+                    {{vm.user.bdate}}
+                </div>
+                <div ng-controller="DatepickerPopupDemoCtrl">
+                    <div class="col-md-10">
+                        <p class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="datepicker">
+                            <button type="button" class="btn btn-primary" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </form>

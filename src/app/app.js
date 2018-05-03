@@ -11,12 +11,14 @@ import '@uirouter/angularjs';
 import 'angular-socket-io';
 import 'moment';
 import 'angular-permission';
+import 'ngmap';
 
 (function() {
     'use strict';
 
     angular.module('app', [
         'ui.router',
+        'ngMap',
         'permission',
         'permission.ui',
         require('angular-aria'),

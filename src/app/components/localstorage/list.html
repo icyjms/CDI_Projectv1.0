@@ -1,0 +1,27 @@
+<div class="content-view">
+    <h2>My Users</h2>
+    <table class="table table-bordered" style="width: 500px;">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name   </th>
+            </tr>
+        </thead>
+        <tr ng-repeat="data in pc.data">
+            <td class="text-capitalize text-bold">{{data.first_name}}</td>
+            <td class="text-capitalize text-bold">{{data.last_name}}</td>
+        </tr>
+    </table>
+
+    <form ng-submit="pc.update(newUser)">
+            <!-- <input type="text" name="name" ng-model="newUser.first_name" placeholder="First name">
+            <input type="text" name="name" ng-model="newUser.last_name" placeholder="Last name"> -->
+            <!-- <input type="number" min="1" ng-model="newUser.id"> -->
+            <!-- <input type="text" name="name" ng-model="newUser.email" placeholder="Email">
+            <input type="text" name="name" ng-model="newUser.password" placeholder="Password"> -->
+            <input type="text" name="name" ng-model="newUser.name" placeholder="Name">
+            <input type="text" name="name" ng-model="newUser.job" placeholder="Job">
+            <input type="submit" value='Add User'>
+    </form>
+       
+</div>
