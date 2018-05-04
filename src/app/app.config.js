@@ -147,6 +147,10 @@ import ROLES from 'Helpers/permissions';
                 url: 'localstorage',
                 component: 'productList'
             })
+            .state('app.chat', {
+                url: 'chat',
+                component: 'chat'
+            })
             // end
             .state('app.dashboard', {
                 url: 'dashboard',

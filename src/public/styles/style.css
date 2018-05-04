@@ -22,6 +22,7 @@ select {
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .datepicker {
     display: table-cell;
     vertical-align: middle;
@@ -39,6 +40,7 @@ input[name="name"] {
     box-sizing: border-box;
 }
 
+=======>>>>>>>a10b95edaca3f6b08a99b0c503168db350d53033
 a {
     cursor: pointer !important;
     outline: none !important;
