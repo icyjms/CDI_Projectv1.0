@@ -151,6 +151,10 @@ import ROLES from 'Helpers/permissions';
                 url: 'chat',
                 component: 'chat'
             })
+            .state('app.test', {
+                url: 'test',
+                component: 'test'
+            })
             // end
             .state('app.dashboard', {
                 url: 'dashboard',

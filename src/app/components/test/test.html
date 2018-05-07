@@ -1,0 +1,62 @@
+<div class="content-view">
+    <div class="content margin-top col-md-12">
+        Rows to display : <input type="number" step="1" min="0" max={{technologies.length}} ng-model="rowlimit"><br><br>
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Names</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                    <th>Likes/Dislikes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="technology in technologies | limitTo : rowlimit">
+                    <td>{{technology.name}}</td>
+                    <td>{{technology.likes}}</td>
+                    <td>{{technology.dislikes}}</td>
+                    <td>
+                        <input class="btn btn-primary" type="button" value="Like" ng-click="incrementLikes(technology)">
+                        <input class="btn btn-primary" type="button" value="Dislike" ng-click="incrementDislikes(technology)">
+                        <input class="btn btn-primary" type="button" value="Reset" ng-click="reset(technology)">
+                        <input class="btn btn-primary" type="button" value="Remove" ng-click="remove(technology)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        Order By : <select ng-model="sortColumn">
+                        <option value="fname">Name ASC</option>
+                        <option value="hobby">Hobby ASC</option>
+                        <option value="-salary">Salary DESC</option>
+                        <option value="-gender">Gender DESC</option>
+                        <option value="city">City ASC</option>
+                    </select><br><br>
+        <input type="text" placeholder="Search name" ng-model="searchText.fname">
+        <input type="text" placeholder="Search city" ng-model="searchText.city">
+        <input type="checkbox" ng-model="exactMatch"> Exact Match
+        <input type="checkbox" ng-model="hideSalary"> Hide Salary<br><br>            
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th ng-click="sortData('fname')">Name</th>
+                    <th ng-click="sortData('hobby')">Hobby</th>
+                    <th ng-hide="hideSalary" ng-click="sortData('salary')">Salary</th>
+                    <th ng-show="hideSalary" ng-click="sortData('salary')">Salary</th>
+                    <th ng-click="sortData('gender')">Gender</th>
+                    <th ng-click="sortData('city')">City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort | filter:searchText:exactMatch">
+                    <td>{{employee.fname}}</td>
+                    <td>{{employee.hobby}}</td>
+                    <td ng-hide="hideSalary">{{employee.salary | currency}}</td>
+                    <td ng-show="hideSalary">####</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.city}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
