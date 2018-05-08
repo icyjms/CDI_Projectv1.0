@@ -1,6 +1,6 @@
 <div class="content-view">
     <div class="content margin-top col-md-12">
-        Rows to display : <input type="number" step="1" min="0" max={{technologies.length}} ng-model="rowlimit"><br><br>
+        Rows to display : <input type="number" step="1" min="0" max={{tc.technologies.length}} ng-model="tc.rowlimit"><br><br>
         <table class="table table-bordered table-sm">
             <thead>
                 <tr>
@@ -11,21 +11,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="technology in technologies | limitTo : rowlimit">
+                <tr ng-repeat="technology in tc.technologies | limitTo : tc.rowlimit">
                     <td>{{technology.name}}</td>
                     <td>{{technology.likes}}</td>
                     <td>{{technology.dislikes}}</td>
                     <td>
-                        <input class="btn btn-primary" type="button" value="Like" ng-click="incrementLikes(technology)">
-                        <input class="btn btn-primary" type="button" value="Dislike" ng-click="incrementDislikes(technology)">
-                        <input class="btn btn-primary" type="button" value="Reset" ng-click="reset(technology)">
-                        <input class="btn btn-primary" type="button" value="Remove" ng-click="remove(technology)">
+                        <div class="btn-group btn-group-sm">
+                            <input class="btn btn-success" type="button" value="Like" ng-click="tc.incrementLikes(technology)">
+                            <input class="btn btn-primary" type="button" value="Dislike" ng-click="tc.incrementDislikes(technology)">
+                            <input class="btn btn-warning" type="button" value="Reset" ng-click="tc.reset(technology)">
+                            <input class="btn btn-danger" type="button" value="Remove" ng-click="tc.remove(technology)">
+                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
         <br>
-        Order By : <select ng-model="sortColumn">
+
+
+        Order By : <select ng-model="tc.sortColumn">
                         <option value="fname">Name ASC</option>
                         <option value="hobby">Hobby ASC</option>
                         <option value="-salary">Salary DESC</option>
@@ -37,18 +41,18 @@
         <input type="checkbox" ng-model="exactMatch"> Exact Match
         <input type="checkbox" ng-model="hideSalary"> Hide Salary<br><br>            
         <table class="table table-striped table-bordered table-sm">
-            <thead>
+            <thead class="thead-dark">
                 <tr>
-                    <th ng-click="sortData('fname')">Name</th>
-                    <th ng-click="sortData('hobby')">Hobby</th>
-                    <th ng-hide="hideSalary" ng-click="sortData('salary')">Salary</th>
-                    <th ng-show="hideSalary" ng-click="sortData('salary')">Salary</th>
-                    <th ng-click="sortData('gender')">Gender</th>
-                    <th ng-click="sortData('city')">City</th>
+                    <th ng-click="tc.sortData('fname')">Name</th>
+                    <th ng-click="tc.sortData('hobby')">Hobby</th>
+                    <th ng-hide="hideSalary" ng-click="tc.sortData('salary')">Salary</th>
+                    <th ng-show="hideSalary" ng-click="tc.sortData('salary')">Salary</th>
+                    <th ng-click="tc.sortData('gender')">Gender</th>
+                    <th ng-click="tc.sortData('city')">City</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort | filter:searchText:exactMatch">
+                <tr ng-repeat="employee in tc.employees | orderBy:tc.sortColumn:tc.reverseSort | filter:searchText:exactMatch">
                     <td>{{employee.fname}}</td>
                     <td>{{employee.hobby}}</td>
                     <td ng-hide="hideSalary">{{employee.salary | currency}}</td>
@@ -58,5 +62,39 @@
                 </tr>
             </tbody>
         </table>
+        <br><br>
+        <table class="table table-bordered table-sm" st-table="users" st-safe-src="tc.users">
+            <thead>
+                <tr>
+                    <td colspan="5" class="text-center">
+                    <div st-pagination="" st-items-by-page="tc.itemsPerPage" st-displayed-pages="5">
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.fullName}}</td>
+                </tr>
+            </tbody>
+            <footer>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="tc.itemsPerPage" st-displayed-pages="5">
+                        </div>
+                    </td>
+                </tr>
+            </footer>
+        </table>
+        
+
     </div>
+
 </div>

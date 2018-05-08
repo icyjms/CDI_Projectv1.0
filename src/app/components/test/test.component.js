@@ -9,22 +9,45 @@ import angular from 'angular';
         controllerAs: 'tc'
     });
 
-    TestCtrl.$inject = ['$scope'];
+    TestCtrl.$inject = ['$scope', '$http', '$log'];
 
-    function TestCtrl($scope) {
-        var tc = $scope;
+    function TestCtrl($scope, $http, $log) {
+        var tc = this;
 
         // Technologies table
-        var technologies = [
-            { name: 'C#', likes: 0, dislikes: 0 },
-            { name: 'ASP.Net', likes: 0, dislikes: 0 },
-            { name: 'AngularJS', likes: 0, dislikes: 0 },
-            { name: 'ReactJS', likes: 0, dislikes: 0 },
-            { name: 'Python', likes: 0, dislikes: 0 },
-            { name: 'Java', likes: 0, dislikes: 0 }
+        tc.technologies = [
+            {
+                name: 'C#',
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                name: 'ASP.Net',
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                name: 'AngularJS',
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                name: 'ReactJS',
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                name: 'Python',
+                likes: 0,
+                dislikes: 0
+            },
+            {
+                name: 'Java',
+                likes: 0,
+                dislikes: 0
+            }
         ];
 
-        tc.technologies = technologies;
         tc.rowlimit = 3;
 
         tc.incrementLikes = function(technology) {
@@ -46,7 +69,7 @@ import angular from 'angular';
         };
 
         // Employees table
-        var employees = [
+        tc.employees = [
             {
                 fname: 'James',
                 hobby: 'Basketball',
@@ -92,12 +115,30 @@ import angular from 'angular';
         ];
 
         tc.sortColumn = 'name';
-        tc.employees = employees;
         tc.reverseSort = false;
 
         tc.sortData = function(column) {
             tc.reverseSort = tc.sortColumn == column ? !tc.reverseSort : false;
             tc.sortColumn = column;
         };
+
+        // Users table
+        var urlBase = 'http://api-express-staging.codedisruptors.com:7010';
+        // var urlBase = "http://dummy.restapiexample.com/api/v1/employees";
+
+        tc.users = $http.get(urlBase + '/user').then(
+            function(response) {
+                tc.users = response.data.data.items;
+                $log.info(tc.users);
+            },
+            function(error) {
+                tc.error = error.data;
+                $log.info(error);
+            }
+        );
+
+        tc.totalItems = tc.users.length;
+        tc.currentPage = 1;
+        tc.itemsPerPage = 10;
     }
 })();

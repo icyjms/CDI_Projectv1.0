@@ -12,6 +12,7 @@ import 'angular-socket-io';
 import 'moment';
 import 'angular-permission';
 import 'ngmap';
+import 'angular-smart-table';
 
 (function() {
     'use strict';
@@ -21,6 +22,7 @@ import 'ngmap';
         'ngMap',
         'permission',
         'permission.ui',
+        'smart-table',
         require('angular-aria'),
         require('angular-cookies'),
         require('angular-loading-bar'),
