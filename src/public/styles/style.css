@@ -3,6 +3,38 @@ input-group-btn:last-child > .btn,
     margin-left: 0 !important;
 }
 
+/* Web component*/
+.header {
+    width: 800px;
+    height: 80px;
+    text-align: center;
+    background-color: #d3c3c3;
+}
+
+.footer {
+    background-color: bisque;
+    text-align: center;
+}
+
+.leftMenu {
+    height: 500px;
+    background-color: #d8d8d8;
+}
+
+.mainContent {
+    height: 500px;
+    width: 650px;
+    background-color: #e6e6e6;
+}
+
+a {
+    display: block;
+    padding: 5px;
+    text-decoration-line: none;
+}
+/* end - Web component */
+
+/* Map component */
 .map-view {
     padding: 50px 0px 0px 0px;
 }
@@ -10,6 +42,7 @@ input-group-btn:last-child > .btn,
 .map-canvas {
     height: 900px;
 }
+/* end - Map component */
 
 input[type=text],
 select {
@@ -33,7 +66,7 @@ input[type=text],
 input[name="name"] {
     width: 245px;
     padding: 3px 20px;
-    margin: 0px 0;
+    margin: 15px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 20px;

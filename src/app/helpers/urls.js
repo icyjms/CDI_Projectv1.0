@@ -6,7 +6,8 @@ const URLS = {
     logout: '/logout',
     dashboard: '/dashboard',
     users: '/users',
-    settings: '/settings'
+    settings: '/settings',
+    user: '/user'
 };
 
 export default URLS;

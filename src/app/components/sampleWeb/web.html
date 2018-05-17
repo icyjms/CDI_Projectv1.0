@@ -1,0 +1,26 @@
+<div class="content-view">
+    <table style="font-family: Arial">
+        <tr>
+            <td colspan="2" class="header">
+                <h1>Website header</h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftMenu">
+                <a ui-sref="app.sampleWeb.home">Home</a>
+                <a ui-sref="app.sampleWeb.courses">Courses</a>
+                <a ui-sref="app.sampleWeb.students">Students</a>
+            </td>
+            <td class="mainContent">
+                <div ui-view="home"></div>
+                <div ui-view="courses"></div>
+                <div ui-view="students"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                <b>Website footer</b>
+            </td>
+        </tr>
+    </table>
+</div>

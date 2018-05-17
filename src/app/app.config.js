@@ -121,7 +121,9 @@ import ROLES from 'Helpers/permissions';
     router.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     function router($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/login');
+        $urlRouterProvider
+            .otherwise('/login')
+            .when('sampleWeb', 'sampleWeb/home');
         $stateProvider
             .state('app', {
                 abstract: true,
@@ -143,17 +145,37 @@ import ROLES from 'Helpers/permissions';
                 url: 'map',
                 component: 'mapComponent'
             })
-            .state('app.localstorage', {
-                url: 'localstorage',
-                component: 'productList'
-            })
-            .state('app.chat', {
-                url: 'chat',
-                component: 'chat'
-            })
             .state('app.test', {
                 url: 'test',
                 component: 'test'
+            })
+            .state('app.sampleWeb', {
+                url: 'sampleWeb',
+                component: 'sampleWeb'
+            })
+            .state('app.sampleWeb.home', {
+                url: '/home',
+                views: {
+                    home: {
+                        component: 'home'
+                    }
+                }
+            })
+            .state('app.sampleWeb.courses', {
+                url: '/courses',
+                views: {
+                    courses: {
+                        component: 'courses'
+                    }
+                }
+            })
+            .state('app.sampleWeb.students', {
+                url: '/students',
+                views: {
+                    courses: {
+                        component: 'students'
+                    }
+                }
             })
             // end
             .state('app.dashboard', {

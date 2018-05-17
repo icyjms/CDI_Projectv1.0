@@ -28,7 +28,7 @@
         </table>
         <br>
 
-
+        <!-- Employee table -->
         Order By : <select ng-model="tc.sortColumn">
                         <option value="fname">Name ASC</option>
                         <option value="hobby">Hobby ASC</option>
@@ -63,6 +63,8 @@
             </tbody>
         </table>
         <br><br>
+
+        <!-- Users Table -->
         <table class="table table-bordered table-sm" st-table="users" st-safe-src="tc.users">
             <thead>
                 <tr>
@@ -92,8 +94,43 @@
                     </td>
                 </tr>
             </footer>
-        </table>
-        
+        </table> 
+     
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in tc.users | limitTo:tc.limit">
+                    <td>{{user.id}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.fullName}}</td>
+                </tr>
+               
+            </tbody>
+            
+            <!-- <footer>
+                <tr>
+                    <ul uib-pagination total-items="totalItems" ng-model="currentPage" items-per-page="itemsPerPage" max-size="5"
+                    ng-change="onPageChange()" class="pagination-sm" boundary-links="true" rotate="false" previous-text="&lsaquo;" 
+                    next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+                    </ul>
+                    <div class="btn-group pull-right" style="margin-top: 10px; height: 30px;">
+                        <label class="btn btn-default" ng-model="itemsPerPage" uib-btn-radio="10" ng-click="onSizeChange()">10</label>
+                        <label class="btn btn-default" ng-model="itemsPerPage" uib-btn-radio="15" ng-click="onSizeChange()">15</label>
+                        <label class="btn btn-default" ng-model="itemsPerPage" uib-btn-radio="20" ng-click="onSizeChange()">20</label>
+                    </div>
+                </tr>
+               
+            </footer> -->
+        </table> 
+        <div>
+            <input class="btn btn-primary btn-block" type="button" value="Load More" ng-click="tc.loadMore()">
+        </div>   
 
     </div>
 

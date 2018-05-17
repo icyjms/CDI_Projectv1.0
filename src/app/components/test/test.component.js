@@ -6,12 +6,17 @@ import angular from 'angular';
     angular.module('app').component('test', {
         template: require('./test.html'),
         controller: TestCtrl,
-        controllerAs: 'tc'
+        controllerAs: 'tc',
+        bindings: {
+            pageData: '<',
+            onChangePage: '&',
+            sizeChange: '&'
+        }
     });
 
-    TestCtrl.$inject = ['$scope', '$http', '$log'];
+    TestCtrl.$inject = ['$http', '$log', 'QueryService'];
 
-    function TestCtrl($scope, $http, $log) {
+    function TestCtrl($http, $log, QueryService) {
         var tc = this;
 
         // Technologies table
@@ -123,22 +128,55 @@ import angular from 'angular';
         };
 
         // Users table
-        var urlBase = 'http://api-express-staging.codedisruptors.com:7010';
-        // var urlBase = "http://dummy.restapiexample.com/api/v1/employees";
+        getData();
 
-        tc.users = $http.get(urlBase + '/user').then(
-            function(response) {
-                tc.users = response.data.data.items;
-                $log.info(tc.users);
-            },
-            function(error) {
-                tc.error = error.data;
-                $log.info(error);
-            }
-        );
+        function getData() {
+            var request = {
+                method: 'GET', // POST, GET, PUT, DELETE
+                body: false, // data to be sent
+                params: { per_page: 10 }, // sample { page:1, limit:10 }
+                hasFile: false, // formData to be sent
+                route: { user: '' }, // will result /users
+                cache: false, // false if not needed
+                cache_string: [''] // replace with '' if not needed
+            };
 
-        tc.totalItems = tc.users.length;
-        tc.currentPage = 1;
+            QueryService.query(request).then(
+                function(response) {
+                    console.log(response);
+                    tc.users = response.data.data.items;
+                    tc.totalItems = tc.users.length;
+                    // logger.success('',response, MESSAGE.success);
+                },
+                function(err) {
+                    logger.error(MESSAGE.error, err, '');
+                }
+            );
+        }
+
+        tc.currentPage = 2;
         tc.itemsPerPage = 10;
+
+        tc.onPageChange = onPageChange;
+        tc.onSizeChange = onSizeChange;
+
+        function onPageChange() {
+            onChangePage();
+        }
+
+        function onSizeChange() {
+            sizeChange();
+        }
+
+        // set the default amount of items being displayed
+        tc.limit = 5;
+
+        // loadMore function
+        tc.loadMore = function() {
+            // $scope.limit = tc.users.length
+            if (tc.limit != tc.users.length) {
+                tc.limit = tc.limit + 10;
+            }
+        };
     }
 })();
