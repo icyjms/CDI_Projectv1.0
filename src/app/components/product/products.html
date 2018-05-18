@@ -1,0 +1,24 @@
+<div class="content-view">
+    <div class="carouselCtrl">
+        <div uib-carousel active="pc.active" interval="pc.myInterval">
+            <div uib-slide ng-repeat="slide in pc.products" index="$index">
+               <img ng-src="{{slide.imageUrl}}" style="margin:auto;" class="carouselImg">
+                <div class="carouselCaption">
+                    <!-- <h4>Slide {{slide.id}}</h4> -->
+                    <br><br>
+                    <span>{{slide.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Products</h2>
+    <input type="text" placeholder="Search name" ng-model="searchText.name">
+    <div class="gridWrapper">
+        
+        <div ng-repeat="product in pc.products | filter:searchText:exactMatch">            
+                <a href="" ng-click="pc.viewProductModal()"><img ng-src={{product.imageUrl}} class="gridBox"></a>
+            <span>{{product.name}}</span>
+        </div>
+    </div>
+</div>

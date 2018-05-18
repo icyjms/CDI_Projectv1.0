@@ -13,6 +13,7 @@ import 'moment';
 import 'angular-permission';
 import 'ngmap';
 import 'angular-smart-table';
+import 'angular-animate';
 
 (function() {
     'use strict';

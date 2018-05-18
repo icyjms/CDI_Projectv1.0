@@ -58,7 +58,7 @@ import ROLES from 'Helpers/permissions';
                 body: user, // data to be sent
                 params: false, // sample { page:1, limit:10 }
                 hasFile: false, // formData to be sent
-                route: { login: '' }, // will result /users
+                route: { auth: '', login: '' }, // will result /users
                 cache: false, // false if not needed
                 cache_string: ['']
             };

@@ -1,4 +1,5 @@
 import angular from 'angular';
+import { debug } from 'util';
 
 (function() {
     'use strict';
@@ -14,15 +15,17 @@ import angular from 'angular';
         var parent = this;
 
         // This function saves user data into browser cookies
-        this.saveUser = function(data) {
+        this.saveUser = function(response) {
+            var user = response.data.items[0];
             $cookies.putObject('user', {
-                id: data.id,
-                fullname: data.fullName,
-                phoneNumber: data.phoneNumber,
-                email: data.email,
-                token: data.token,
+                id: user.id,
+                fullname: user.fullName,
+                phoneNumber: user.phoneNumber,
+                email: user.email,
+                token: user.token,
                 role: 'ADMIN'
             });
+            debugger;
         };
 
         this.getUser = function() {
@@ -31,7 +34,6 @@ import angular from 'angular';
 
         this.getToken = function() {
             var user = parent.getUser();
-
             if (user) {
                 return user.token;
             } else {

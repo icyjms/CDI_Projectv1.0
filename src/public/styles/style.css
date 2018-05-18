@@ -3,6 +3,61 @@ input-group-btn:last-child > .btn,
     margin-left: 0 !important;
 }
 
+/* product component */
+.gridWrapper {
+    display: grid;
+    /* grid-template-columns: 100px 100px 100px 100px; */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 90px;
+    background-color: #fff;
+    color: #444;
+}
+
+.gridBox {
+    /* background-color:#299687; */
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 150%;
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
+span {
+    display: block;
+    text-align: center;
+}
+
+.carouselImg {
+    /* object-fit: cover; */
+    display: block;
+    margin-left: 500px;
+    margin-right: auto;
+    max-height: 150px;
+    max-width: 150px;
+    padding-top: 10px;
+}
+
+.carouselCaption {
+    font-weight: bold;
+    color: #000;
+    padding-bottom: 10px;
+}
+
+.carouselCtrl {
+    background-color: #299687;
+    display: block;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* End - Product component */
+
 /* Web component*/
 .header {
     width: 800px;
@@ -42,38 +97,26 @@ a {
 .map-canvas {
     height: 900px;
 }
+
 /* end - Map component */
 
 input[type=text],
 select {
-    width: 60%;
+    width: 15%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-<<<<<<< HEAD
-.datepicker {
-    display: table-cell;
-    vertical-align: middle;
-    padding-top: 8px;
-}
-
-input[type=text],
-input[name="name"] {
-    width: 245px;
-    padding: 3px 20px;
-    margin: 15px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 20px;
     box-sizing: border-box;
 }
 
-=======>>>>>>>a10b95edaca3f6b08a99b0c503168db350d53033
+.datepicker {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 8px;
+}
+
 a {
     cursor: pointer !important;
     outline: none !important;

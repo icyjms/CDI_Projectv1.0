@@ -13,7 +13,7 @@ import ROLES from 'Helpers/permissions';
                     request: function(config) {
                         // Get the token from session service
                         var token = SessionService.getToken();
-
+                        // debugger; // this is a test
                         // Attach an x-access-token header to the request
                         // With the token from sesison service as value
                         config.headers['x-access-token'] = token;
@@ -176,6 +176,10 @@ import ROLES from 'Helpers/permissions';
                         component: 'students'
                     }
                 }
+            })
+            .state('app.products', {
+                url: 'products',
+                component: 'products'
             })
             // end
             .state('app.dashboard', {
